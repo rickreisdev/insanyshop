@@ -26,8 +26,10 @@ export default async function SearchPage({
   }
 
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>Resultados para: &quot;{query}&quot;</h1>
+    <main style={{ padding: "5rem" }}>
+      <h1 style={{ fontFamily: "Inter, sans-serif" }}>
+        Exibindo resultados para: &quot;{query}&quot;
+      </h1>
       {products.length === 0 ? (
         <p>Nenhum produto encontrado.</p>
       ) : (
