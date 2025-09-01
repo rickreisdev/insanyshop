@@ -1,9 +1,20 @@
-"use client"; // necessário no App Router do Next 13+
+"use client";
 
 import Link from "next/link";
 import { SetStateAction, useState } from "react";
 import { useRouter } from "next/navigation";
-import { HeaderContainer, Logo, SearchBox, CartButton } from "./styles";
+import Image from "next/image";
+import {
+  HeaderContainer,
+  Logo,
+  SearchBox,
+  CartButton,
+  SearchWrapper,
+  SearchIconWrapper,
+  SearchAndCartWrapper,
+} from "./styles";
+import { Search } from "lucide-react";
+import shoppingBag from "../../assets/svg/shopping-bag.svg";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -18,24 +29,35 @@ export default function Header() {
 
   return (
     <HeaderContainer>
-      <Link href="/">
+      <Link href="/" style={{ textDecoration: "none" }}>
         <Logo>InsanyShop</Logo>
       </Link>
 
-      <form onSubmit={handleSearch}>
-        <SearchBox
-          type="text"
-          placeholder="Buscar produtos..."
-          value={search}
-          onChange={(e: { target: { value: SetStateAction<string>; }; }) => setSearch(e.target.value)}
-        />
-      </form>
+      <SearchAndCartWrapper>
+        <form onSubmit={handleSearch}>
+          <SearchWrapper>
+            <SearchBox
+              type="text"
+              placeholder="Procurando por algo específico?"
+              value={search}
+              onChange={(e: { target: { value: SetStateAction<string> } }) =>
+                setSearch(e.target.value)
+              }
+              aria-label="Procurar produtos"
+            />
+            <SearchIconWrapper>
+              <Search size={24} color="#737380" />
+            </SearchIconWrapper>
+          </SearchWrapper>
+        </form>
 
-      <Link href="/carrinho">
-        <CartButton>
-          🛒 <span>0</span>
-        </CartButton>
-      </Link>
+        <Link href="/carrinho">
+          <CartButton>
+            <Image src={shoppingBag} alt="Carrinho de compras" />
+            <span>0</span>
+          </CartButton>
+        </Link>
+      </SearchAndCartWrapper>
     </HeaderContainer>
   );
 }
