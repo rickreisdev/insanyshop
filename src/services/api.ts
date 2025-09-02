@@ -14,7 +14,11 @@ export async function getProduct(id: string) {
 
 export async function getCategories() {
   const res = await fetch(`${BASE_URL}/api/categories`);
-  return res.json();
+  if (!res.ok) throw new Error("Erro ao buscar categorias");
+
+  const data = await res.json();
+
+  return data;
 }
 
 export async function searchProducts(term: string) {
