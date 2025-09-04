@@ -45,7 +45,7 @@ export default function Header() {
               }
               aria-label="Procurar produtos"
             />
-            <SearchIconWrapper>
+            <SearchIconWrapper onClick={handleSearch}>
               <Search size={24} color="#737380" />
             </SearchIconWrapper>
           </SearchWrapper>
