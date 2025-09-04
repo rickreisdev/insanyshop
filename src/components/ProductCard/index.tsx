@@ -34,7 +34,6 @@ export default function ProductCard({
   name,
   price,
   image,
-  category,
   categoryName,
   description,
   rating,
