@@ -10,6 +10,7 @@ export const HeaderContainer = styled.header`
   border-bottom: 1px solid #eee;
   padding: 0 10rem;
   box-sizing: border-box;
+  z-index: 1000;
 `;
 
 export const Logo = styled.h1`
