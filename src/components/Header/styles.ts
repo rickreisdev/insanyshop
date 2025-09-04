@@ -4,6 +4,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   position: fixed;
   width: 100%;
+  height: 5rem;
   align-items: center;
   justify-content: space-between;
   background: #ffffff;
@@ -32,32 +33,31 @@ export const SearchWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  min-width: 300px;
+  min-width: 22rem;
+  height: 2.6rem;
   font-family: "Inter", sans-serif;
   color: #737380;
   font-size: 0.9rem;
   border-radius: 8px;
   background-color: #f3f7ff;
-  padding: 1rem 1.3rem;
   outline: none;
   border: none;
 `;
 
 export const SearchIconWrapper = styled.div`
+  cursor: pointer;
   position: absolute;
   right: 12px;
-  pointer-events: none;
 `;
 
 export const SearchBox = styled.input`
-  width: 100%;
+  width: 80.5%;
   height: auto;
   background: none;
   outline: none;
   border: none;
-  /* &:focus {
-    border-color: #111;
-  } */
+  margin-left: 12px;
+  font-weight: 400;
 `;
 
 export const CartButton = styled.button`
