@@ -111,7 +111,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                       style={{
                         fontSize: "1rem",
                         fontWeight: "400",
-                        color: "#41414D"
+                        color: "#41414D",
                       }}
                     >
                       {productCategory?.name}
@@ -121,7 +121,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                       style={{
                         fontSize: "2rem",
                         fontWeight: "300",
-                        color: "#41414D"
+                        color: "#41414D",
                       }}
                     >
                       {product.name}
@@ -131,7 +131,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                       style={{
                         fontSize: "1.25rem",
                         fontWeight: "600",
-                        color: "#46AB6A"
+                        color: "#46AB6A",
                       }}
                     >
                       {priceToBRL(product.price)}
