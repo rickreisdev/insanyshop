@@ -11,13 +11,11 @@ import {
   CategoryPriceStockBox,
   Description,
   Stock,
-  ButtonBox,
-  Button,
 } from "./styles";
 
 import { priceToBRL } from "@/utils/formatting";
 
-import { ShoppingCart } from "lucide-react";
+import { AddToCartButton } from "../AddToCartButton";
 
 type ProductCardProps = {
   id: string;
@@ -61,16 +59,7 @@ export default function ProductCard({
             <Stock>{stock} em estoque</Stock>
           </CategoryPriceStockBox>
 
-          <ButtonBox>
-            <Button>
-              <ShoppingCart
-                size={24}
-                color="#FFFFFF"
-                style={{ marginRight: 8 }}
-              />
-              Adicionar
-            </Button>
-          </ButtonBox>
+          <AddToCartButton />
         </CategoryInfoBox>
       </CardBottomBox>
     </Card>
