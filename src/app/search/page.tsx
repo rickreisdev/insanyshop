@@ -1,5 +1,6 @@
 import { searchProducts, getCategories } from "@/services/api";
 import ProductCard from "@/components/ProductCard";
+import { BackButton } from "@/components/BackButton";
 
 type ProductFromApi = {
   id: string;
@@ -50,15 +51,23 @@ export default async function SearchPage({
   return (
     <main
       style={{
-        padding: " 10rem",
+        padding: "7rem 10rem",
         width: "100%",
         boxSizing: "border-box",
         alignItems: "center",
+        fontFamily: "Inter, sans-serif",
       }}
     >
-      <h1 style={{ fontFamily: "Inter, sans-serif" }}>
-        Exibindo resultados para: &quot;{query}&quot;
-      </h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <BackButton />
+      </div>
+
+      <h1>Exibindo resultados para: &quot;{query}&quot;</h1>
       {products.length === 0 ? (
         <p>Nenhum produto encontrado.</p>
       ) : (
@@ -68,7 +77,7 @@ export default async function SearchPage({
             gridTemplateColumns: "repeat(auto-fit, minmax(23rem, 1fr))",
             columnGap: "1rem",
             rowGap: "2rem",
-            marginTop: "1rem",
+            marginTop: "3.5rem",
             justifyItems: "center",
             alignItems: "center",
           }}
