@@ -1,7 +1,7 @@
 "use client";
 
 import { ShoppingCart } from "lucide-react";
-import { Button, ButtonBox } from "./style";
+import { Button, ButtonBox } from "./styles";
 
 export function AddToCartButton() {
   return (
