@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,12 +29,24 @@ export const CardBottomBox = styled.div`
   font-size: 14px;
 `;
 
-export const Image = styled.img`
+export const ImageContainer = styled.div`
   width: 100%;
   height: 53%;
-  object-fit: cover;
   border-top-left-radius: 19px;
   border-top-right-radius: 19px;
+  overflow: hidden;
+`;
+
+export const Image = styled.img`
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const CategoryRattingBox = styled.div`
@@ -56,6 +67,7 @@ export const Title = styled.h2`
   font-size: 0.9rem;
   margin: 0.5rem 0 0;
   font-weight: 700;
+  cursor: pointer;
 `;
 
 export const Description = styled.h3`

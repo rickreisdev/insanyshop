@@ -13,6 +13,7 @@ import {
   CategoryPriceStockBox,
   Description,
   Stock,
+  ImageContainer,
 } from "./styles";
 
 import { priceToBRL } from "@/utils/formatting";
@@ -44,8 +45,15 @@ export default function ProductCard({
   const router = useRouter();
 
   return (
-    <Card onClick={() => router.push(`/produto/${id}`)}>
-      <Image src={image} alt={name} />
+    <Card>
+      <ImageContainer>
+        <Image
+          onClick={() => router.push(`/produto/${id}`)}
+          src={image}
+          alt={name}
+          title={name}
+        />
+      </ImageContainer>
 
       <CardBottomBox>
         <CategoryRattingBox>
@@ -54,7 +62,7 @@ export default function ProductCard({
         </CategoryRattingBox>
 
         <CategoryInfoBox>
-          <Title>{name}</Title>
+          <Title onClick={() => router.push(`/produto/${id}`)}>{name}</Title>
           <Description>{description}</Description>
 
           <CategoryPriceStockBox>
