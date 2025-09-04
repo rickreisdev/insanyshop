@@ -1,9 +1,22 @@
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export async function getProducts(page = 1, limit = 10) {
-  const res = await fetch(
-    `${BASE_URL}/api/products?page=${page}&limit=${limit}`
-  );
+export async function getProducts(category?: string, page = 1, limit = 10) {
+  const query = new URLSearchParams({
+    page: page.toString(),
+    limit: limit.toString(),
+  });
+
+  if (category) {
+    query.append("category", category);
+  }
+
+  const res = await fetch(`${BASE_URL}/api/products?${query.toString()}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Erro ao buscar produtos");
+  }
   return res.json();
 }
 
