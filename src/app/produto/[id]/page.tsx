@@ -13,7 +13,7 @@ import { priceToBRL } from "@/utils/formatting";
 import { BackButton } from "@/components/BackButton";
 
 type ProductFromApi = {
-  id: string;
+  id: number;
   name: string;
   price: number;
   image: string;
@@ -116,7 +116,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     >
                       {productCategory?.name}
                     </span>
-                    
+
                     <h1
                       style={{
                         fontSize: "2rem",
@@ -126,7 +126,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     >
                       {product.name}
                     </h1>
-                    
+
                     <h3
                       style={{
                         fontSize: "1.25rem",
@@ -162,7 +162,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   </DescriptionWrapper>
                 </InfoDescriptionWrapper>
 
-                <AddToCartButton />
+                <AddToCartButton
+                  id={id}
+                  name={product.image}
+                  price={product.price}
+                  image={product.image}
+                  stock={product.stock}
+                />
               </InfoWrapper>
             </SingleProductCard>
           )}

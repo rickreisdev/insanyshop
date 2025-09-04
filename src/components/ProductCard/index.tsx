@@ -21,7 +21,7 @@ import { priceToBRL } from "@/utils/formatting";
 import { AddToCartButton } from "../AddToCartButton";
 
 type ProductCardProps = {
-  id: string;
+  id: number;
   name: string;
   price: number;
   image: string;
@@ -70,7 +70,13 @@ export default function ProductCard({
             <Stock>{stock} em estoque</Stock>
           </CategoryPriceStockBox>
 
-          <AddToCartButton />
+          <AddToCartButton
+            id={id}
+            name={name}
+            price={price}
+            image={image}
+            stock={stock}
+          />
         </CategoryInfoBox>
       </CardBottomBox>
     </Card>
