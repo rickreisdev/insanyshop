@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import {
   Card,
   Image,
@@ -39,8 +41,10 @@ export default function ProductCard({
   rating,
   stock,
 }: ProductCardProps) {
+  const router = useRouter();
+
   return (
-    <Card>
+    <Card onClick={() => router.push(`/produto/${id}`)}>
       <Image src={image} alt={name} />
 
       <CardBottomBox>
