@@ -7,7 +7,7 @@ import Pagination from "@/components/Pagination";
 import MainCategoriesCard from "@/components/MainCategoriesCard";
 
 type ProductFromApi = {
-  id: string;
+  id: number;
   name: string;
   price: number;
   image: string;
@@ -59,9 +59,6 @@ export default async function Home({ searchParams }: HomeProps) {
     console.error(error);
     notFound();
   }
-
-  console.log("Array cat: ", categoriesArray);
-  console.log("Map cat: ", categoriesMap);
 
   return (
     <main
