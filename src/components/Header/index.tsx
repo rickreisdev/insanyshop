@@ -15,16 +15,28 @@ import {
 } from "./styles";
 import { Search } from "lucide-react";
 import shoppingBag from "../../assets/svg/shopping-bag.svg";
+import { useCart } from "@/hooks/useCart";
 
 export default function Header() {
   const [search, setSearch] = useState("");
   const router = useRouter();
+  const {cart} = useCart();
+
+  const cartItensCount = cart.reduce((acc, item) => acc + item.quantity, 0)
+
+  console.log("Carrinho ", cart)
+  console.log(cartItensCount)
+
 
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
     if (search.trim()) {
       router.push(`/search?q=${encodeURIComponent(search)}`);
     }
+  }
+
+  function linkToCartPage() {
+    router.push("/carrinho");
   }
 
   return (
@@ -51,12 +63,12 @@ export default function Header() {
           </SearchWrapper>
         </form>
 
-        <Link href="/carrinho">
+        <div onClick={linkToCartPage} title="Acessar carrinho">
           <CartButton>
             <Image src={shoppingBag} alt="Carrinho de compras" />
-            <span>0</span>
+            <span>{cartItensCount}</span>
           </CartButton>
-        </Link>
+        </div>
       </SearchAndCartWrapper>
     </HeaderContainer>
   );
