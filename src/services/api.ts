@@ -20,7 +20,7 @@ export async function getProducts(category?: string, page = 1, limit = 10) {
   return res.json();
 }
 
-export async function getProduct(id: string) {
+export async function getProduct(id: number) {
   const res = await fetch(`${BASE_URL}/api/products/${id}`);
   return res.json();
 }
