@@ -22,7 +22,10 @@ export async function getCategories() {
 }
 
 export async function searchProducts(term: string) {
-  const res = await fetch(`${BASE_URL}/api/products?search=${encodeURIComponent(term)}`, { cache: "no-store" });
+  const res = await fetch(
+    `${BASE_URL}/api/products?search=${encodeURIComponent(term)}`,
+    { cache: "no-store" }
+  );
   if (!res.ok) throw new Error("Erro ao buscar produtos");
   const data = await res.json();
   console.log(data);
