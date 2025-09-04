@@ -1,10 +1,17 @@
-
 import { getCategories, getProduct } from "@/services/api";
 import { notFound } from "next/navigation";
 import SortSelect from "@/components/SortSelect";
 import { AddToCartButton } from "@/components/AddToCartButton";
-import { CategoryNamePriceWrapper, DescriptionWrapper, Image } from "./style";
+import {
+  CategoryNamePriceWrapper,
+  DescriptionWrapper,
+  Image,
+  InfoDescriptionWrapper,
+  InfoWrapper,
+  SingleProductCard,
+} from "./styles";
 import { priceToBRL } from "@/utils/formatting";
+import { BackButton } from "@/components/BackButton";
 
 type ProductFromApi = {
   id: string;
@@ -69,6 +76,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         width: "100%",
         boxSizing: "border-box",
         alignItems: "center",
+        fontFamily: "Inter, sans-serif",
       }}
     >
       <div
@@ -77,13 +85,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
           justifyContent: "space-between",
         }}
       >
-        Voltar
-        <SortSelect />
+        <BackButton />
       </div>
 
       <div
         style={{
-          paddingTop: "2.5rem",
+          paddingTop: "0rem",
         }}
       >
         <div
@@ -95,60 +102,70 @@ export default async function ProductPage({ params }: ProductPageProps) {
           }}
         >
           {product && (
-            <div
-              style={{
-                display: "flex",
-                justifyItems: "center",
-                alignItems: "center",
-                gap: "1rem",
-                fontFamily: "Inter, sans-serif"
-              }}
-            >
+            <SingleProductCard>
               <Image src={product.image} alt={product.name} />
 
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyItems: "center",
-                  alignItems: "center",
-                }}
-              >
-                <CategoryNamePriceWrapper>
-                  <span>{productCategory?.name}</span>
-                  <h2>{product.name}</h2>
-                  <h3
-                    style={{
-                      fontSize: "1.25rem",
-                      fontWeight: "600",
-                      
-                    }}
-                  >
-                    {priceToBRL(product.price)}
-                  </h3>
-                </CategoryNamePriceWrapper>
+              <InfoWrapper>
+                <InfoDescriptionWrapper>
+                  <CategoryNamePriceWrapper>
+                    <span
+                      style={{
+                        fontSize: "1rem",
+                        fontWeight: "400",
+                        color: "#41414D"
+                      }}
+                    >
+                      {productCategory?.name}
+                    </span>
+                    
+                    <h1
+                      style={{
+                        fontSize: "2rem",
+                        fontWeight: "300",
+                        color: "#41414D"
+                      }}
+                    >
+                      {product.name}
+                    </h1>
+                    
+                    <h3
+                      style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "600",
+                        color: "#46AB6A"
+                      }}
+                    >
+                      {priceToBRL(product.price)}
+                    </h3>
+                  </CategoryNamePriceWrapper>
 
-                <DescriptionWrapper>
-                  <h3 style={{
-                    fontSize: "1rem",
-                    color: "#737380",
-                    fontWeight: "500",
-                    textTransform: "uppercase"
-                  }}>Descrição</h3>
-                  <p
-                    style={{
-                      fontSize: "0.9rem",
-                      fontWeight: "400",
-                      color: "#41414D",
-                    }}
-                  >
-                    {product.description}
-                  </p>
-                </DescriptionWrapper>
+                  <DescriptionWrapper>
+                    <h3
+                      style={{
+                        fontSize: "1rem",
+                        color: "#737380",
+                        fontWeight: "500",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      Descrição
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: "0.9rem",
+                        fontWeight: "400",
+                        color: "#41414D",
+                        marginTop: "1.5rem",
+                      }}
+                    >
+                      {product.description}
+                    </p>
+                  </DescriptionWrapper>
+                </InfoDescriptionWrapper>
 
                 <AddToCartButton />
-              </div>
-            </div>
+              </InfoWrapper>
+            </SingleProductCard>
           )}
         </div>
       </div>
