@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 type CartItem = {
-  id: string;
+  id: number;
   name: string;
   price: number;
   quantity: number;
   image: string;
+  stock: number;
 };
 
 export function useCart() {
@@ -21,20 +22,35 @@ export function useCart() {
   }, [cart]);
 
   function addItem(item: CartItem) {
-    setCart(prev => {
-      const existing = prev.find(p => p.id === item.id);
+    setCart((prev) => {
+      const existing = prev.find((p) => p.id === item.id);
+
       if (existing) {
-        return prev.map(p =>
-          p.id === item.id ? { ...p, quantity: p.quantity + item.quantity } : p
-        );
+        if (existing.quantity + item.quantity <= item.stock) {
+          return prev.map((p) =>
+            p.id === item.id
+              ? { ...p, quantity: p.quantity + item.quantity }
+              : p
+          );
+        }
+        return prev;
       }
+
       return [...prev, item];
     });
   }
 
-  function removeItem(id: string) {
-    setCart(prev => prev.filter(p => p.id !== id));
+  function removeItem(id: number) {
+    setCart((prev) => prev.filter((p) => p.id !== id));
   }
 
-  return { cart, addItem, removeItem };
+  function updateQuantity(id: number, quantity: number) {
+    setCart((prev) =>
+      prev.map((p) =>
+        p.id === id ? { ...p, quantity: Math.min(quantity, p.stock) } : p
+      )
+    );
+  }
+
+  return { cart, addItem, removeItem, updateQuantity };
 }
