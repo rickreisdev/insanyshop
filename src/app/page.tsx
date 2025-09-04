@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import CategoriesSelect from "@/components/CategoriesSelect";
 import SortSelect from "@/components/SortSelect";
 import Pagination from "@/components/Pagination";
+import MainCategoriesCard from "@/components/MainCategoriesCard";
 
 type ProductFromApi = {
   id: string;
@@ -59,6 +60,9 @@ export default async function Home({ searchParams }: HomeProps) {
     notFound();
   }
 
+  console.log("Array cat: ", categoriesArray);
+  console.log("Map cat: ", categoriesMap);
+
   return (
     <main
       style={{
@@ -82,11 +86,10 @@ export default async function Home({ searchParams }: HomeProps) {
       <div
         style={{
           paddingTop: "2.5rem",
+          fontFamily: "Inter, sans-serif",
         }}
       >
-        <h1 style={{ fontFamily: "Inter, sans-serif", paddingBottom: "1rem" }}>
-          Todos os Produtos
-        </h1>
+        <h1 style={{ paddingBottom: "1rem" }}>Todos os Produtos</h1>
 
         <div
           style={{
@@ -114,6 +117,33 @@ export default async function Home({ searchParams }: HomeProps) {
           currentPage={pagination.currentPage}
           totalPages={pagination.totalPages}
         />
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+          }}
+        >
+          <h1 style={{ paddingBottom: "1rem" }}>Principais categorias</h1>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            {categoriesArray.map((cat) => (
+              <MainCategoriesCard
+                key={cat.id}
+                id={cat.id}
+                name={cat.name}
+                productCount={cat.productCount}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </main>
   );
