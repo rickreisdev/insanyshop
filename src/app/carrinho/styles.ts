@@ -63,3 +63,18 @@ export const Links = styled.div`
     }
   }
 `;
+
+export const EmptyContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-family: "Inter", sans-serif;
+`;
+
+export const CartIcon = styled.div`
+  background: none;
+  border: none;
+  margin-top: 2.5rem;
+`;
