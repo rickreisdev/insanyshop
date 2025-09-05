@@ -1,6 +1,5 @@
 "use client";
 
-import { notFound } from "next/navigation";
 import { useCart } from "@/hooks/useCart";
 
 import { BackButton } from "@/components/BackButton";
@@ -13,20 +12,8 @@ import {
   SemiBoldTotalLine,
   Summary,
 } from "./styles";
-import CartProductCard from "@/components/CartProductCard";
-import { priceToBRL } from "@/utils/formatting";
 
-type ProductFromCart = {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
-  description: string;
-  rating: number;
-  stock: number;
-  brand: string;
-};
+import { ShoppingCart } from "lucide-react";
 
 export default function CartPage() {
   const { cart } = useCart();
@@ -36,13 +23,6 @@ export default function CartPage() {
   const shippingCost = cart.shippingCost;
 
   const totalPriceShipping = totalPrice + shippingCost;
-
-  try {
-    console.log("Carrinho", cart);
-  } catch (error) {
-    console.error(error);
-    notFound();
-  }
 
   return (
     <main
