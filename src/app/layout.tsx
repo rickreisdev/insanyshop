@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Saira } from "next/font/google";
 import Header from "@/components/Header";
 import "../styles/global.css";
+import { CartProvider } from "@/contexts/CartContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,8 +30,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={inter.variable}>
       <body className={saira.variable}>
-        <Header />
-        <main>{children}</main>
+        <CartProvider>
+          <Header />
+          <main>{children}</main>
+        </CartProvider>
       </body>
     </html>
   );
