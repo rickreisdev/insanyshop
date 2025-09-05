@@ -20,6 +20,9 @@ const saira = Saira({
 export const metadata: Metadata = {
   title: "InsanyShop",
   description: "Site de e-commerce simples desenvolvido no desafio técnico",
+  icons: {
+    icon: "/favicon.png"
+  }
 };
 
 export default function RootLayout({
