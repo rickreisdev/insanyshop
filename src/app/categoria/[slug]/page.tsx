@@ -6,7 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Pagination from "@/components/Pagination";
 
 type ProductFromApi = {
-  id: string;
+  id: number;
   name: string;
   price: number;
   image: string;

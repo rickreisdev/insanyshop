@@ -8,6 +8,7 @@ import { Button, ButtonBox } from "./styles";
 type AddCartProps = {
   id: number;
   name: string;
+  description: string;
   price: number;
   image: string;
   stock: number;
@@ -16,6 +17,7 @@ type AddCartProps = {
 export function AddToCartButton({
   id,
   name,
+  description,
   price,
   image,
   stock,
@@ -26,6 +28,7 @@ export function AddToCartButton({
     cart.addItem({
       id,
       name,
+      description,
       price,
       image,
       stock,
