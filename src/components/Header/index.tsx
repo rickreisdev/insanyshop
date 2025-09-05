@@ -22,10 +22,7 @@ export default function Header() {
   const router = useRouter();
   const {cart} = useCart();
 
-  const cartItensCount = cart.reduce((acc, item) => acc + item.quantity, 0)
-
-  console.log("Carrinho ", cart)
-  console.log(cartItensCount)
+  const cartItensCount = cart.totalItems
 
 
   function handleSearch(e: React.FormEvent) {

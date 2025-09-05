@@ -41,6 +41,5 @@ export async function searchProducts(term: string) {
   );
   if (!res.ok) throw new Error("Erro ao buscar produtos");
   const data = await res.json();
-  console.log(data);
   return data;
 }
