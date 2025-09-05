@@ -11,7 +11,6 @@ export const Container = styled.main`
   max-width: 1200px;
   margin: 0 auto;
 
-
   font-family: "Inter", sans-serif;
 
   @media (max-width: 900px) {
@@ -26,11 +25,26 @@ export const CartArea = styled.section`
 `;
 
 export const Summary = styled.aside`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
   background: #fff;
-  width: auto;
-  height: 44rem;
-  border-radius: 10px;
+  width: 20rem;
+  height: 42rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+`;
+
+export const InfoArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40%;
 `;
 
 export const InfoLine = styled.div`
@@ -38,25 +52,30 @@ export const InfoLine = styled.div`
   justify-content: space-between;
   color: #555;
   margin-top: 0.75rem;
+  margin: 0;
 `;
 
 export const SemiBoldTotalLine = styled(InfoLine)`
   font-weight: 600;
   font-size: 1.1rem;
   margin-top: 1rem;
+  border-top: 1px solid #dce2e5;
+  padding-top: 0.7rem;
 `;
 
 export const Links = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.9rem;
   margin-top: 1.5rem;
 
   a {
-    color: #555;
+    color: #737380;
     font-size: 0.875rem;
     text-decoration: underline;
+    text-transform: uppercase;
     cursor: pointer;
+    transition: color 0.2s ease-in-out;
 
     &:hover {
       color: #000;
