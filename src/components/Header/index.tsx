@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { SetStateAction, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/hooks/useCart";
 import Image from "next/image";
+
 import {
   HeaderContainer,
   Logo,
@@ -13,9 +15,9 @@ import {
   SearchIconWrapper,
   SearchAndCartWrapper,
 } from "./styles";
+
 import { Search } from "lucide-react";
 import shoppingBag from "../../assets/svg/shopping-bag.svg";
-import { useCart } from "@/hooks/useCart";
 
 export default function Header() {
   const [search, setSearch] = useState("");
