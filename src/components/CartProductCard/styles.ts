@@ -2,27 +2,23 @@ import styled from "styled-components";
 
 export const Card = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 19px;
+  border-radius: 8px;
   transition: transform 0.2s ease;
-  height: 37.5rem;
-  width: 23rem;
+  height: 12.5rem;
+  width: 100%;
   margin: 0;
-  border: 1px solid #dddddd;
+  background: #fff;
 `;
 
-export const CardBottomBox = styled.div`
+export const CardRightBox = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom-left-radius: 19px;
-  border-bottom-right-radius: 19px;
-  background: #fff;
   transition: transform 0.2s ease;
-  height: 47%;
+  height: 100%;
   width: 100%;
-  padding: 1rem 1.5rem 0.5rem 1.5rem;
+  padding: 0.3rem 1rem 1rem 2rem;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -30,11 +26,8 @@ export const CardBottomBox = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  width: 100%;
-  height: 53%;
-  border-top-left-radius: 19px;
-  border-top-right-radius: 19px;
-  overflow: hidden;
+  width: 50%;
+  height: 100%;
 `;
 
 export const Image = styled.img`
@@ -42,46 +35,37 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 `;
 
-export const CategoryRattingBox = styled.div`
+export const TitleTrashBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-transform: capitalize;
-`;
-
-export const CategoryInfoBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 0.5rem;
 `;
 
 export const Title = styled.h2`
-  font-size: 0.9rem;
-  margin: 0.5rem 0 0;
-  font-weight: 700;
+  font-size: 1.25rem;
+  color: #41414d;
+  font-weight: 300;
   cursor: pointer;
 `;
 
 export const Description = styled.h3`
-  font-size: 0.9rem;
+  height: 100%;
+  font-size: 0.75rem;
   margin: 0.5rem 0;
   font-weight: 400;
+  color: #41414d;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 3.5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-export const CategoryPriceStockBox = styled.div`
+export const QuantityPriceBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -89,9 +73,9 @@ export const CategoryPriceStockBox = styled.div`
 `;
 
 export const Price = styled.p`
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #1b9847;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #09090a;
 `;
 
 export const Stock = styled.p`
