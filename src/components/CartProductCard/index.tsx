@@ -2,20 +2,22 @@
 
 import { useRouter } from "next/navigation";
 
+import { priceToBRL } from "@/utils/formatting";
+
 import {
   Card,
   Image,
   Title,
   Price,
-  CardBottomBox,
-  CategoryInfoBox,
-  CategoryPriceStockBox,
+  CardRightBox,
+  TitleTrashBox,
+  QuantityPriceBox,
   Description,
-  Stock,
   ImageContainer,
 } from "./styles";
 
-import { priceToBRL } from "@/utils/formatting";
+import { BsTrash3 } from "react-icons/bs";
+import QuantitySelect from "../QuantitySelect";
 
 type ProductCardProps = {
   id: number;
@@ -34,35 +36,29 @@ export default function CartProductCard({
   description,
   price,
   quantity,
-  stock
+  stock,
 }: ProductCardProps) {
   const router = useRouter();
-
-
 
   return (
     <Card>
       <ImageContainer>
-        <Image
-          src={image}
-          alt={name}
-          title={name}
-        />
+        <Image src={image} alt={name} title={name} />
       </ImageContainer>
 
-      <CardBottomBox>
-        <CategoryInfoBox>
+      <CardRightBox>
+        <TitleTrashBox>
           <Title onClick={() => router.push(`/produto/${id}`)}>{name}</Title>
-          <Description>{description}</Description>
+          <BsTrash3 size={22} color="#DE3838" />
+        </TitleTrashBox>
 
-          <CategoryPriceStockBox>
-            <Price>{priceToBRL(price)}</Price>
-            <Stock>{stock} em estoque</Stock>
-          </CategoryPriceStockBox>
+        <Description>{description}</Description>
 
-
-        </CategoryInfoBox>
-      </CardBottomBox>
+        <QuantityPriceBox>
+          <QuantitySelect productId={id} stock={stock} quantity={quantity} />
+          <Price>{priceToBRL(price)}</Price>
+        </QuantityPriceBox>
+      </CardRightBox>
     </Card>
   );
 }
