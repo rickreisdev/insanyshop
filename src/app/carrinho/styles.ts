@@ -2,41 +2,63 @@
 
 import styled from "styled-components";
 
-export const SingleProductCard = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 36.25rem;
+export const Container = styled.main`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: #f6f9fc;
+  font-family: "Inter", sans-serif;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
-export const Image = styled.img`
-  width: 42rem;
-  height: 100%;
-  object-fit: cover;
-`;
-
-export const InfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: start;
-  width: 28rem;
-  height: 100%;
-`;
-
-export const InfoDescriptionWrapper = styled.div`
+export const CartArea = styled.section`
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+`;
+
+export const Summary = styled.aside`
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+`;
+
+export const InfoLine = styled.div`
+  display: flex;
   justify-content: space-between;
-  gap: 4rem;
-  height: 50%;
+  color: #555;
+  margin-top: 0.75rem;
 `;
 
-export const CategoryNamePriceWrapper = styled.div`
-  width: 100%;
+export const SemiBoldTotalLine = styled(InfoLine)`
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1rem;
 `;
 
-export const DescriptionWrapper = styled.div`
-  width: 100%;
+export const Links = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+
+  a {
+    color: #555;
+    font-size: 0.875rem;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
+  }
 `;
