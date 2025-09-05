@@ -1,14 +1,7 @@
 // "use client";
 
 import { Button, ButtonBox } from "./styles";
-
-// type CheckoutProps = {
-//   id: number;
-//   name: string;
-//   price: number;
-//   image: string;
-//   stock: number;
-// };
+import { useCart } from "@/hooks/useCart";
 
 export function CheckoutButton() {
 
