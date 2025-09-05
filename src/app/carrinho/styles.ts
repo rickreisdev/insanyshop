@@ -7,10 +7,11 @@ export const Container = styled.main`
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
   width: 100%;
+  height: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-  background: #f6f9fc;
+
+
   font-family: "Inter", sans-serif;
 
   @media (max-width: 900px) {
@@ -26,10 +27,10 @@ export const CartArea = styled.section`
 
 export const Summary = styled.aside`
   background: #fff;
-  padding: 2rem;
+  width: auto;
+  height: 44rem;
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  height: fit-content;
 `;
 
 export const InfoLine = styled.div`
