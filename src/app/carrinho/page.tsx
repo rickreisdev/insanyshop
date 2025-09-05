@@ -49,6 +49,7 @@ export default function CartPage() {
       style={{
         padding: "7rem 10rem",
         width: "100%",
+        height: "100%",
         boxSizing: "border-box",
         alignItems: "center",
         fontFamily: "Inter, sans-serif",
