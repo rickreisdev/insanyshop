@@ -79,8 +79,8 @@ export const CartButton = styled.button`
     font-family: Saira, sans-serif;
     font-size: 0.75rem;
     font-weight: 500;
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
   }
 `;
