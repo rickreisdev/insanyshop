@@ -4,6 +4,10 @@ import { useCart } from "@/hooks/useCart";
 
 import { BackButton } from "@/components/BackButton";
 import { CheckoutButton } from "@/components/CheckoutButton";
+import CartProductCard from "@/components/CartProductCard";
+
+import { priceToBRL } from "@/utils/formatting";
+
 import {
   CartArea,
   Container,
