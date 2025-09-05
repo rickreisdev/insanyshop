@@ -52,6 +52,10 @@ export const Title = styled.h2`
   cursor: pointer;
 `;
 
+export const RemoveButton = styled.div`
+cursor: pointer;
+`;
+
 export const Description = styled.h3`
   height: 100%;
   font-size: 0.75rem;
