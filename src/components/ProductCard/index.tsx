@@ -73,6 +73,7 @@ export default function ProductCard({
           <AddToCartButton
             id={id}
             name={name}
+            description={description}
             price={price}
             image={image}
             stock={stock}
