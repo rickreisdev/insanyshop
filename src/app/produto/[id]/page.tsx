@@ -165,6 +165,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <AddToCartButton
                   id={id}
                   name={product.image}
+                  description={product.description}
                   price={product.price}
                   image={product.image}
                   stock={product.stock}
