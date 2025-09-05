@@ -1,6 +1,6 @@
 import { getProducts, getCategories } from "@/services/api";
-import ProductCard from "@/components/ProductCard";
 import { notFound } from "next/navigation";
+import ProductCard from "@/components/ProductCard";
 import CategoriesSelect from "@/components/CategoriesSelect";
 import SortSelect from "@/components/SortSelect";
 import Pagination from "@/components/Pagination";
