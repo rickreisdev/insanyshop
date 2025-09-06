@@ -3,7 +3,7 @@ import ProductCard from "@/components/ProductCard";
 import { BackButton } from "@/components/BackButton";
 
 type ProductFromApi = {
-  id: string;
+  id: number;
   name: string;
   price: number;
   image: string;
