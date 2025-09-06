@@ -3,7 +3,7 @@
 import { useCart } from "@/hooks/useCart";
 
 import { ShoppingCart } from "lucide-react";
-import { Button, ButtonBox } from "./styles";
+import { Button, ButtonBox, DisabledButton } from "./styles";
 
 type AddCartProps = {
   id: number;
@@ -12,6 +12,7 @@ type AddCartProps = {
   price: number;
   image: string;
   stock: number;
+  stockAvailable: boolean;
 };
 
 export function AddToCartButton({
@@ -21,6 +22,7 @@ export function AddToCartButton({
   price,
   image,
   stock,
+  stockAvailable,
 }: AddCartProps) {
   const cart = useCart();
 
@@ -37,11 +39,15 @@ export function AddToCartButton({
   }
 
   return (
-    <ButtonBox onClick={handleAddToCart}>
-      <Button>
-        <ShoppingCart size={24} color="#FFFFFF" style={{ marginRight: 8 }} />
-        Adicionar
-      </Button>
+    <ButtonBox>
+      {stockAvailable && (
+        <Button onClick={handleAddToCart}>
+          <ShoppingCart size={24} color="#FFFFFF" style={{ marginRight: 8 }} />
+          Adicionar
+        </Button>
+      )}
+
+      {!stockAvailable && <DisabledButton>Não disponível</DisabledButton>}
     </ButtonBox>
   );
 }

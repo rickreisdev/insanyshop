@@ -28,3 +28,19 @@ export const Button = styled.div`
     width: 95%;
   }
 `;
+
+export const DisabledButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #515151ff;
+  height: 2.5rem;
+  border-radius: 4px;
+  width: 100%;
+  color: #ffffff;
+  font-weight: 500;
+  
+  @media ${device.tablet} {
+    width: 95%;
+  }
+`;

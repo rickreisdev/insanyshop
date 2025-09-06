@@ -19,6 +19,7 @@ import {
 import { priceToBRL } from "@/utils/formatting";
 
 import { AddToCartButton } from "../AddToCartButton";
+import { useCart } from "@/hooks/useCart";
 
 type ProductCardProps = {
   id: number;
@@ -43,6 +44,11 @@ export default function ProductCard({
   stock,
 }: ProductCardProps) {
   const router = useRouter();
+  const { cart } = useCart();
+
+  const cartItem = cart.items.find((item) => item.id === id);
+  const inStock = cartItem ? stock - cartItem.quantity : stock;
+  const stockAvailable = inStock > 0 ? true : false;
 
   return (
     <Card>
@@ -67,7 +73,9 @@ export default function ProductCard({
 
           <CategoryPriceStockBox>
             <Price>{priceToBRL(price)}</Price>
-            <Stock>{stock} em estoque</Stock>
+            <Stock>
+              {stockAvailable ? `${stock} em estoque` : "Sem estoque"}
+            </Stock>
           </CategoryPriceStockBox>
 
           <AddToCartButton
@@ -77,6 +85,7 @@ export default function ProductCard({
             price={price}
             image={image}
             stock={stock}
+            stockAvailable={stockAvailable}
           />
         </CategoryInfoBox>
       </CardBottomBox>
