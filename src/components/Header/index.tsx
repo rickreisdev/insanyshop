@@ -22,10 +22,9 @@ import shoppingBag from "../../assets/svg/shopping-bag.svg";
 export default function Header() {
   const [search, setSearch] = useState("");
   const router = useRouter();
-  const {cart} = useCart();
+  const { cart } = useCart();
 
-  const cartItensCount = cart.totalItems
-
+  const cartItensCount = cart.totalItems;
 
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
