@@ -1,6 +1,5 @@
 import { getCategories, getProduct } from "@/services/api";
 import { notFound } from "next/navigation";
-import { AddToCartButton } from "@/components/AddToCartButton";
 import { BackButton } from "@/components/BackButton";
 import {
   CategoryNamePriceWrapper,
