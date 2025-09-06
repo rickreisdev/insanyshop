@@ -54,7 +54,7 @@ export default function ProductCard({
     <Card>
       <ImageContainer>
         <Image
-          onClick={() => router.push(`/produto/${id}`)}
+          onClick={() => router.push(`/produto/${id}?stockAvailable=${stockAvailable}`)}
           src={image}
           alt={name}
           title={name}

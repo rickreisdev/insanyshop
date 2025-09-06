@@ -1,6 +1,7 @@
 import { getCategories, getProduct } from "@/services/api";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { BackButton } from "@/components/BackButton";
 import {
   CategoryNamePriceWrapper,
   DescriptionWrapper,
@@ -14,7 +15,7 @@ import {
   SingleProductCardArea,
 } from "./styles";
 import { priceToBRL } from "@/utils/formatting";
-import { BackButton } from "@/components/BackButton";
+import { ProductPageStock } from "@/components/ProductPageStock";
 
 type ProductFromApi = {
   id: number;
@@ -71,12 +72,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
     console.error(error);
     notFound();
   }
-
   return (
-    <Main
-    >
-      <FiltersContainer
-      >
+    <Main>
+      <FiltersContainer>
         <BackButton />
       </FiltersContainer>
 
@@ -155,13 +153,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   </DescriptionWrapper>
                 </InfoDescriptionWrapper>
 
-                <AddToCartButton
-                  id={id}
+                <ProductPageStock
+                  productId={product.id}
+                  stock={product.stock}
                   name={product.name}
                   description={product.description}
                   price={product.price}
                   image={product.image}
-                  stock={product.stock}
                 />
               </InfoWrapper>
             </SingleProductCard>
