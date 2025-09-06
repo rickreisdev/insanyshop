@@ -1,23 +1,11 @@
 import Spinner from "@/components/Spinner";
+import { LoadingContainer } from "@/styles/global";
 
 export default function Loading() {
   return (
-    <main
-      style={{
-        padding: "7rem 10rem",
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        boxSizing: "border-box",
-        fontFamily: "Inter, sans-serif",
-        color: "#535353",
-      }}
-    >
+    <LoadingContainer>
       <h3>Carregando produtos</h3>
       <Spinner />
-    </main>
+    </LoadingContainer>
   );
 }
