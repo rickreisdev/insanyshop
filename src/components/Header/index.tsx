@@ -16,6 +16,8 @@ import {
   SearchAndCartWrapper,
 } from "./styles";
 
+import { device } from "@/styles/theme";
+
 import { Search } from "lucide-react";
 import shoppingBag from "../../assets/svg/shopping-bag.svg";
 
@@ -56,7 +58,7 @@ export default function Header() {
               aria-label="Procurar produtos"
             />
             <SearchIconWrapper onClick={handleSearch}>
-              <Search size={24} color="#737380" />
+              <Search size={device.tablet ? 14 : 24} color="#737380" />
             </SearchIconWrapper>
           </SearchWrapper>
         </form>
