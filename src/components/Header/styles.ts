@@ -126,6 +126,10 @@ export const CartButton = styled.button`
     border-radius: 50%;
   }
 
+  @media ${device.smallMobile} {
+    right: 20px !important;
+  }
+
   @media ${device.mobile} {
     right: 4px;
   }

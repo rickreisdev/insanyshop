@@ -36,6 +36,11 @@ export const SingleProductCard = styled.div`
     gap: 1rem;
     height: 100%;
   }
+
+  @media ${device.laptop} {
+    gap: 1rem;
+    height: 100%;
+  }
 `;
 
 export const Image = styled.img`
