@@ -4,6 +4,7 @@ import { Saira } from "next/font/google";
 import Header from "@/components/Header";
 import "../styles/global.css";
 import { CartProvider } from "@/contexts/CartContext";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,7 +36,21 @@ export default function RootLayout({
       <body className={saira.variable}>
         <CartProvider>
           <Header />
-          <main>{children}</main>
+          <main>
+            {children}{" "}
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
+          </main>
         </CartProvider>
       </body>
     </html>

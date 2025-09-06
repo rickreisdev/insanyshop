@@ -21,6 +21,8 @@ import { BsTrash3 } from "react-icons/bs";
 import QuantitySelect from "../QuantitySelect";
 import { useCart } from "@/hooks/useCart";
 
+import { toast } from "react-toastify";
+
 type ProductCardProps = {
   id: number;
   image: string;
@@ -44,6 +46,7 @@ export default function CartProductCard({
   const { removeItem } = useCart();
 
   function handleRemoveItem(productId: number) {
+    toast.success("Item removido com sucesso!")
     removeItem(productId);
   }
 
