@@ -1,6 +1,7 @@
 import { searchProducts, getCategories } from "@/services/api";
 import ProductCard from "@/components/ProductCard";
 import { BackButton } from "@/components/BackButton";
+import { FiltersContainer, Main, ProducCardArea } from "./styles";
 
 type ProductFromApi = {
   id: number;
@@ -49,38 +50,16 @@ export default async function SearchPage({
   }
 
   return (
-    <main
-      style={{
-        padding: "7rem 10rem",
-        width: "100%",
-        boxSizing: "border-box",
-        alignItems: "center",
-        fontFamily: "Inter, sans-serif",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
+    <Main>
+      <FiltersContainer>
         <BackButton />
-      </div>
+      </FiltersContainer>
 
       <h1>Exibindo resultados para: &quot;{query}&quot;</h1>
       {products.length === 0 ? (
         <p>Nenhum produto encontrado.</p>
       ) : (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(23rem, 1fr))",
-            columnGap: "1rem",
-            rowGap: "2rem",
-            marginTop: "3.5rem",
-            justifyItems: "center",
-            alignItems: "center",
-          }}
+        <ProducCardArea
         >
           {products.map((p) => (
             <ProductCard
@@ -89,8 +68,8 @@ export default async function SearchPage({
               categoryName={categories[p.category]?.name || p.category}
             />
           ))}
-        </div>
+        </ProducCardArea>
       )}
-    </main>
+    </Main>
   );
 }
