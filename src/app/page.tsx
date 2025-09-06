@@ -6,6 +6,15 @@ import SortSelect from "@/components/SortSelect";
 import Pagination from "@/components/Pagination";
 import MainCategoriesCard from "@/components/MainCategoriesCard";
 
+import {
+  Main,
+  Container,
+  FiltersContainer,
+  MainCategoriesContainer,
+  MainCategoriesArea,
+  ProducCardArea,
+} from "./styles";
+
 type ProductFromApi = {
   id: number;
   name: string;
@@ -61,26 +70,14 @@ export default async function Home({ searchParams }: HomeProps) {
   }
 
   return (
-    <main
-      style={{
-        padding: "7rem 10rem",
-        width: "100%",
-        boxSizing: "border-box",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
+    <Main>
+      <FiltersContainer>
         <CategoriesSelect categories={categoriesArray} />
 
         <SortSelect />
-      </div>
+      </FiltersContainer>
 
-      <div
+      <Container
         style={{
           paddingTop: "2.5rem",
           fontFamily: "Inter, sans-serif",
@@ -88,15 +85,9 @@ export default async function Home({ searchParams }: HomeProps) {
       >
         <h1 style={{ paddingBottom: "1rem" }}>Todos os Produtos</h1>
 
-        <div
+        <ProducCardArea
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(23rem, 1fr))",
-            columnGap: "1rem",
-            rowGap: "2rem",
-            marginTop: "2rem",
-            justifyItems: "center",
-            alignItems: "center",
+
           }}
         >
           {products.map((product) => (
@@ -108,14 +99,14 @@ export default async function Home({ searchParams }: HomeProps) {
               }
             />
           ))}
-        </div>
+        </ProducCardArea>
 
         <Pagination
           currentPage={pagination.currentPage}
           totalPages={pagination.totalPages}
         />
 
-        <div
+        <MainCategoriesContainer
           style={{
             display: "flex",
             flexDirection: "column",
@@ -123,7 +114,7 @@ export default async function Home({ searchParams }: HomeProps) {
           }}
         >
           <h1 style={{ paddingBottom: "1rem" }}>Principais categorias</h1>
-          <div
+          <MainCategoriesArea
             style={{
               display: "flex",
               alignItems: "center",
@@ -139,9 +130,9 @@ export default async function Home({ searchParams }: HomeProps) {
                 productCount={cat.productCount}
               />
             ))}
-          </div>
-        </div>
-      </div>
-    </main>
+          </MainCategoriesArea>
+        </MainCategoriesContainer>
+      </Container>
+    </Main>
   );
 }

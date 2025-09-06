@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import SortSelect from "@/components/SortSelect";
 import Breadcrumb from "@/components/Breadcrumb";
 import Pagination from "@/components/Pagination";
+import { Main, FiltersContainer, Container, ProducCardArea } from "./styles";
 
 type ProductFromApi = {
   id: number;
@@ -71,26 +72,14 @@ export default async function CategoryPage({
   const currentCategory = categoriesMap[slug].name || slug;
 
   return (
-    <main
-      style={{
-        padding: "7rem 10rem",
-        width: "100%",
-        boxSizing: "border-box",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
+    <Main>
+      <FiltersContainer>
         <Breadcrumb currentCategory={currentCategory} />
 
         <SortSelect />
-      </div>
+      </FiltersContainer>
 
-      <div
+      <Container
         style={{
           paddingTop: "2.5rem",
         }}
@@ -99,17 +88,7 @@ export default async function CategoryPage({
           {currentCategory}
         </h1>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(23rem, 1fr))",
-            columnGap: "1rem",
-            rowGap: "2rem",
-            marginTop: "2rem",
-            justifyItems: "center",
-            alignItems: "center",
-          }}
-        >
+        <ProducCardArea>
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -119,13 +98,13 @@ export default async function CategoryPage({
               }
             />
           ))}
-        </div>
+        </ProducCardArea>
 
         <Pagination
           currentPage={pagination.currentPage}
           totalPages={pagination.totalPages}
         />
-      </div>
-    </main>
+      </Container>
+    </Main>
   );
 }

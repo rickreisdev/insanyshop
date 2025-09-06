@@ -16,6 +16,8 @@ import {
   InfoArea,
   InfoLine,
   Links,
+  Main,
+  FiltersContainer,
   SemiBoldTotalLine,
   Summary,
 } from "./styles";
@@ -33,30 +35,18 @@ export default function CartPage() {
   const totalPriceShipping = totalPrice + shippingCost;
 
   return (
-    <main
-      style={{
-        padding: "7rem 10rem",
-        width: "100%",
-        height: "100%",
-        boxSizing: "border-box",
-        alignItems: "center",
-        fontFamily: "Inter, sans-serif",
-      }}
+    <Main
     >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
+      <FiltersContainer
       >
         <BackButton />
-      </div>
+      </FiltersContainer>
 
       {!emptyCart && totalItems > 0 && (
         <Container>
           <CartArea>
             <div>
-              <h2
+              <h2 id="page-title"
                 style={{
                   color: "#41414D",
                   fontSize: "1.5rem",
@@ -68,7 +58,7 @@ export default function CartPage() {
                 Seu carrinho
               </h2>
 
-              <h3
+              <h3 id="page-total"
                 style={{
                   fontSize: "1rem",
                   color: "#41414D",
@@ -187,6 +177,6 @@ export default function CartPage() {
           </h3>
         </EmptyContainer>
       )}
-    </main>
+    </Main>
   );
 }

@@ -7,7 +7,11 @@ import {
   Image,
   InfoDescriptionWrapper,
   InfoWrapper,
+  Main,
+  FiltersContainer,
+  Container,
   SingleProductCard,
+  SingleProductCardArea,
 } from "./styles";
 import { priceToBRL } from "@/utils/formatting";
 import { BackButton } from "@/components/BackButton";
@@ -69,30 +73,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }
 
   return (
-    <main
-      style={{
-        padding: "7rem 10rem",
-        width: "100%",
-        boxSizing: "border-box",
-        alignItems: "center",
-        fontFamily: "Inter, sans-serif",
-      }}
+    <Main
     >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
+      <FiltersContainer
       >
         <BackButton />
-      </div>
+      </FiltersContainer>
 
-      <div
+      <Container
         style={{
           paddingTop: "0rem",
         }}
       >
-        <div
+        <SingleProductCardArea
           style={{
             display: "flex",
             marginTop: "2rem",
@@ -164,7 +157,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                 <AddToCartButton
                   id={id}
-                  name={product.image}
+                  name={product.name}
                   description={product.description}
                   price={product.price}
                   image={product.image}
@@ -173,8 +166,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </InfoWrapper>
             </SingleProductCard>
           )}
-        </div>
-      </div>
-    </main>
+        </SingleProductCardArea>
+      </Container>
+    </Main>
   );
 }
