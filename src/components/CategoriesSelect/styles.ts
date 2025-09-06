@@ -10,7 +10,6 @@ export const SelectWrapper = styled.div`
 `;
 
 export const SelectButton = styled.div`
-
   border: none;
   border-radius: 8px;
   background: transparent;

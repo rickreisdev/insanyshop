@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "@/styles/theme";
 
 export const Card = styled.div`
   display: flex;
@@ -22,7 +23,11 @@ export const CardRightBox = styled.div`
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.9rem;
+
+  @media ${device.tablet} {
+    padding: 0 1rem 0.1rem 1rem;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -50,10 +55,14 @@ export const Title = styled.h2`
   color: #41414d;
   font-weight: 300;
   cursor: pointer;
+
+  @media ${device.tablet} {
+    font-size: 1.1rem;
+  }
 `;
 
 export const RemoveButton = styled.div`
-cursor: pointer;
+  cursor: pointer;
 `;
 
 export const Description = styled.h3`
@@ -67,6 +76,18 @@ export const Description = styled.h3`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media ${device.mobile} {
+    -webkit-line-clamp: 3.5 !important;
+    margin: 0;
+    height: auto;
+  }
+
+  @media ${device.tablet} {
+    -webkit-line-clamp: 3;
+    margin: 0;
+    height: auto;
+  }
 `;
 
 export const QuantityPriceBox = styled.div`

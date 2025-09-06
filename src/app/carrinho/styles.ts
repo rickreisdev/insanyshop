@@ -1,6 +1,29 @@
 "use client";
 
+import { device } from "@/styles/theme";
 import styled from "styled-components";
+
+export const Main = styled.main`
+  padding: 7rem 10rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+
+  @media ${device.mobile} {
+    padding: 7rem 1.2rem !important;
+  }
+
+  @media ${device.tablet} {
+    padding: 7rem 2.5rem;
+  }
+`;
+
+export const FiltersContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 export const Container = styled.main`
   display: grid;
@@ -16,12 +39,30 @@ export const Container = styled.main`
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
   }
+
+  @media ${device.tablet} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const CartArea = styled.section`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
+  #page-title {
+    @media ${device.tablet} {
+      font-size: 1.3rem !important;
+    }
+  }
+
+  #page-total {
+    @media ${device.tablet} {
+      font-size: 0.9rem !important;
+    }
+  }
 `;
 
 export const Summary = styled.aside`
@@ -32,11 +73,20 @@ export const Summary = styled.aside`
   background: #fff;
   width: 20rem;
   height: 42rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 
   h2 {
     margin: 0;
     margin-bottom: 1rem;
+
+    @media ${device.tablet} {
+      font-size: 1.1rem !important;
+    }
+  }
+
+  @media ${device.tablet} {
+    width: 100%;
+    height: 18.6rem;
+    padding: 1rem;
   }
 `;
 
@@ -53,6 +103,11 @@ export const InfoLine = styled.div`
   color: #555;
   margin-top: 0.75rem;
   margin: 0;
+
+  @media ${device.tablet} {
+    font-size: 0.9rem;
+    margin-bottom: 0.7rem;
+  }
 `;
 
 export const SemiBoldTotalLine = styled(InfoLine)`
@@ -61,6 +116,11 @@ export const SemiBoldTotalLine = styled(InfoLine)`
   margin-top: 1rem;
   border-top: 1px solid #dce2e5;
   padding-top: 0.7rem;
+
+  @media ${device.tablet} {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
 `;
 
 export const Links = styled.div`
@@ -80,6 +140,20 @@ export const Links = styled.div`
     &:hover {
       color: #000;
     }
+
+    @media ${device.tablet} {
+      font-size: 0.75rem;
+      text-align: center;
+    }
+  }
+
+  @media ${device.tablet} {
+    margin-top: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+    border-top: 1px solid #dce2e5;
   }
 `;
 
@@ -90,6 +164,18 @@ export const EmptyContainer = styled.main`
   width: 100%;
   height: 100%;
   font-family: "Inter", sans-serif;
+
+  h2 {
+    @media ${device.tablet} {
+      font-size: 1.1rem !important;
+    }
+  }
+
+  h3 {
+    @media ${device.tablet} {
+      font-size: 1rem !important;
+    }
+  }
 `;
 
 export const CartIcon = styled.div`

@@ -1,3 +1,4 @@
+import { device } from "@/styles/theme";
 import styled from "styled-components";
 
 export const ButtonBox = styled.div`
@@ -25,4 +26,11 @@ export const Button = styled.div`
   &:hover {
     background-color: #167838ff;
   }
+
+    @media ${device.tablet} {
+      font-size: 0.9rem;
+      height: 2.3rem;
+      width: auto;
+      padding: 0 1rem;
+    }
 `;

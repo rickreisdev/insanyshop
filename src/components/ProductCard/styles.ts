@@ -1,3 +1,4 @@
+import { device } from "@/styles/theme";
 import styled from "styled-components";
 
 export const Card = styled.div`
@@ -11,6 +12,11 @@ export const Card = styled.div`
   width: 23rem;
   margin: 0;
   border: 1px solid #dddddd;
+
+  @media ${device.tablet} {
+    width: 20.5rem;
+    height: 37rem;
+  }
 `;
 
 export const CardBottomBox = styled.div`
@@ -27,6 +33,10 @@ export const CardBottomBox = styled.div`
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 14px;
+
+  @media ${device.tablet} {
+    height: 50%;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -35,6 +45,10 @@ export const ImageContainer = styled.div`
   border-top-left-radius: 19px;
   border-top-right-radius: 19px;
   overflow: hidden;
+
+  @media ${device.tablet} {
+    height: 50%;
+  }
 `;
 
 export const Image = styled.img`

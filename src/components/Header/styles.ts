@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "@/styles/theme";
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -12,6 +13,19 @@ export const HeaderContainer = styled.header`
   padding: 0 10rem;
   box-sizing: border-box;
   z-index: 1000;
+
+  @media ${device.smallMobile} {
+    padding: 0.7rem !important;
+  }
+
+  @media ${device.mobile} {
+    padding: 0.8rem !important;
+  }
+
+  @media ${device.tablet} {
+    padding: 1rem 1.5rem;
+    height: 4rem;
+  }
 `;
 
 export const Logo = styled.h1`
@@ -21,6 +35,14 @@ export const Logo = styled.h1`
   cursor: pointer;
   font-family: "Inter", sans-serif;
   text-decoration: none;
+
+  @media ${device.mobile} {
+    font-size: 1rem !important;
+  }
+
+  @media ${device.tablet} {
+    font-size: 1.2rem;
+  }
 `;
 
 export const SearchAndCartWrapper = styled.div`
@@ -42,12 +64,28 @@ export const SearchWrapper = styled.div`
   background-color: #f3f7ff;
   outline: none;
   border: none;
+
+  @media ${device.smallMobile} {
+    margin-left: 0.5rem;
+  }
+
+  @media ${device.mobile} {
+    min-width: 12rem !important;
+  }
+
+  @media ${device.tablet} {
+    min-width: 15rem;
+  }
 `;
 
 export const SearchIconWrapper = styled.div`
   cursor: pointer;
   position: absolute;
   right: 12px;
+
+  @media ${device.tablet} {
+    top: 15px;
+  }
 `;
 
 export const SearchBox = styled.input`
@@ -58,6 +96,10 @@ export const SearchBox = styled.input`
   border: none;
   margin-left: 12px;
   font-weight: 400;
+
+  @media ${device.tablet} {
+    width: 70%;
+  }
 `;
 
 export const CartButton = styled.button`
@@ -82,5 +124,9 @@ export const CartButton = styled.button`
     width: 15px;
     height: 15px;
     border-radius: 50%;
+  }
+
+  @media ${device.mobile} {
+    right: 4px;
   }
 `;
