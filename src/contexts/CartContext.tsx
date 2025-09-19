@@ -71,9 +71,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
     };
   }
 
+  const [lastAddedProductId, setLastAddedProductId] = useState<number | null>(
+    null
+  );
+
   function addItem(item: CartItem) {
-    let hitStock = false;
-    let added = false;
+    let addedId: number | null = null;
 
     setCart((prev) => {
       const existing = prev.items.find((p) => p.id === item.id);
@@ -84,32 +87,31 @@ export function CartProvider({ children }: { children: ReactNode }) {
           if (p.id === item.id) {
             const newQtd = Math.min(p.quantity + item.quantity, p.stock);
 
-            if (newQtd === p.stock) {
-              hitStock = true;
-            }
-
             return { ...p, quantity: newQtd };
           }
 
           return p;
         });
-        added = true;
       } else {
         updatedItems = [...prev.items, item];
-        added = true;
+        addedId = item.id;
       }
 
       return recalc(updatedItems);
     });
 
-    if (hitStock) {
-      toast.warning("O estoque máximo deste produto já foi atingido");
-    }
-
-    if (added){
-      toast.success("Produto adicionado ao carrinho com suceso!")
+    if (addedId !== null) {
+      setLastAddedProductId(addedId);
     }
   }
+
+  useEffect(() => {
+    if (lastAddedProductId) {
+      toast.success("Produto adicionado ao carrinho com sucesso!");
+
+      setLastAddedProductId(null);
+    }
+  }, [lastAddedProductId]);
 
   function removeItem(id: number) {
     setCart((prev) => {
