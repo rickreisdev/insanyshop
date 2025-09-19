@@ -25,6 +25,8 @@ export function AddToCartButton({
   stockAvailable,
 }: AddCartProps) {
   const cart = useCart();
+  const addedCartProductsIds = cart.cart.addedProductsIds || [];
+  const inCart = addedCartProductsIds.includes(id);
 
   function handleAddToCart() {
     cart.addItem({
@@ -43,7 +45,7 @@ export function AddToCartButton({
       {stockAvailable && (
         <Button onClick={handleAddToCart}>
           <ShoppingCart size={24} color="#FFFFFF" style={{ marginRight: 8 }} />
-          Adicionar
+          {inCart ? "Adicionar mais" : "Adicionar"}
         </Button>
       )}
 

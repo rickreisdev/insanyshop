@@ -19,6 +19,7 @@ type CartState = {
   totalItems: number;
   totalPrice: number;
   shippingCost: number;
+  addedProductsIds?: number[];
 };
 
 type CartContextType = {
@@ -34,6 +35,7 @@ const initialState: CartState = {
   totalItems: 0,
   totalPrice: 0,
   shippingCost: 40,
+  addedProductsIds: [],
 };
 
 export const CartContext = createContext<CartContextType | undefined>(
@@ -58,12 +60,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
       (acc, item) => acc + item.price * item.quantity,
       0
     );
+    const addedProductsIds = items.map((item) => item.id);
 
     return {
       items,
       totalItems,
       totalPrice,
       shippingCost: cart.shippingCost,
+      addedProductsIds,
     };
   }
 
