@@ -73,7 +73,7 @@ export default function ProductCard({
 
           <CategoryPriceStockBox>
             <Price>{priceToBRL(price)}</Price>
-            <Stock>
+            <Stock $inStock={inStock} $stockAvailable={stockAvailable}>
               {stockAvailable ? `${inStock} em estoque` : "Sem estoque"}
             </Stock>
           </CategoryPriceStockBox>

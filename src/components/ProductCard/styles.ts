@@ -1,6 +1,11 @@
 import { device } from "@/styles/theme";
 import styled from "styled-components";
 
+interface StockProps {
+  $inStock: number;
+  $stockAvailable: boolean;
+}
+
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
@@ -108,9 +113,16 @@ export const Price = styled.p`
   color: #1b9847;
 `;
 
-export const Stock = styled.p`
+export const Stock = styled.p<StockProps>`
   font-weight: 400;
   font-size: 0.9rem;
+  color: ${({$inStock, $stockAvailable}) =>
+  !$stockAvailable
+    ? 'red'
+    : $inStock <= 5
+      ? '#ff4d00ff'
+      : 'black'
+  }
 `;
 
 export const ButtonBox = styled.div`
