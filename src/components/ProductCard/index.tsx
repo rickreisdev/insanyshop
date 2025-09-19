@@ -47,7 +47,7 @@ export default function ProductCard({
   const { cart } = useCart();
 
   const cartItem = cart.items.find((item) => item.id === id);
-  const inStock = cartItem ? stock - cartItem.quantity : stock;
+  const inStock = cartItem? stock - cartItem.quantity : stock;
   const stockAvailable = inStock > 0 ? true : false;
 
   return (
@@ -74,7 +74,7 @@ export default function ProductCard({
           <CategoryPriceStockBox>
             <Price>{priceToBRL(price)}</Price>
             <Stock>
-              {stockAvailable ? `${stock} em estoque` : "Sem estoque"}
+              {stockAvailable ? `${inStock} em estoque` : "Sem estoque"}
             </Stock>
           </CategoryPriceStockBox>
 
