@@ -44,11 +44,9 @@ export default function ProductCard({
   stock,
 }: ProductCardProps) {
   const router = useRouter();
-  const { cart } = useCart();
+  const { getProductStock } = useCart();
 
-  const cartItem = cart.items.find((item) => item.id === id);
-  const inStock = cartItem? stock - cartItem.quantity : stock;
-  const stockAvailable = inStock > 0 ? true : false;
+  const {inStock, stockAvailable} = getProductStock(id, stock);
 
   return (
     <Card>

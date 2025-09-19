@@ -27,6 +27,10 @@ type CartContextType = {
   addItem: (item: CartItem) => void;
   removeItem: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
+  getProductStock: (
+    productId: number,
+    stock: number
+  ) => { inStock: number; stockAvailable: boolean };
   clearCart: () => void;
 };
 
@@ -133,13 +137,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   }
 
+  function getProductStock(productId: number, stock: number) {
+    const cartItem = cart.items.find((item) => item.id === productId);
+    const inStock = cartItem ? stock - cartItem.quantity : stock;
+    const stockAvailable = inStock > 0;
+    return { inStock, stockAvailable };
+  }
+
   function clearCart() {
     setCart(initialState);
   }
 
   return (
     <CartContext.Provider
-      value={{ cart, addItem, removeItem, updateQuantity, clearCart }}
+      value={{ cart, addItem, removeItem, updateQuantity, getProductStock, clearCart }}
     >
       {children}
     </CartContext.Provider>
