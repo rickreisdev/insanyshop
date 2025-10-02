@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Saira } from "next/font/google";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "../styles/global.css";
 import { CartProvider } from "@/contexts/CartContext";
 import { ToastContainer } from "react-toastify";
@@ -48,6 +49,7 @@ export default function RootLayout({
               theme="dark"
             />
           </main>
+          <Footer />
         </CartProvider>
       </body>
     </html>
